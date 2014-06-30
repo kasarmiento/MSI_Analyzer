@@ -1,0 +1,79 @@
+package edu.csupomona.stilllab;
+
+//an Event is anything that the user can do, like move their mouse, click a button, press enter
+//an EventHandler is something that responds to an event
+
+import java.awt.FlowLayout; 
+import java.awt.event.ActionListener; //listens to/waits for the user to do something
+import java.awt.event.ActionEvent; 
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JOptionPane;
+
+public class EventHandler3 extends JFrame {
+	
+	private JTextField item1;
+	private JTextField item2;
+	private JTextField item3;
+	private JPasswordField password;
+	
+	public EventHandler3() {
+		super("My Password Program");
+		setLayout(new FlowLayout());
+		
+		item1 = new JTextField(10); //10 is the length of string
+		add(item1);
+		
+		item2 = new JTextField("enter text here"); //gives me default text in the textfield
+		add(item2);
+		
+		item3 = new JTextField("uneditable", 20); //makes it so the user cannot edit this.
+		item3.setEditable(false); //user can read what's on the screen but cannot edit it
+		add(item3);
+		
+		password = new JPasswordField("mypass");
+		add(password);
+		
+		//adding functionality to our window
+		//build an action listener to our screen. polling!
+		//build another class of a new object to execute a code
+		
+		TheHandler handler = new TheHandler(); //me building a new ActionListener Object
+		item1.addActionListener(handler);
+		item2.addActionListener(handler);
+		item3.addActionListener(handler);
+		password.addActionListener(handler);		
+		
+	} //our constructor ends. this is all what happens and is set up.
+	
+	//building another class inside the EventHandler3 class. This new class inside inherits all the stuff from the main class.
+	private class TheHandler implements ActionListener {
+		
+		//this method will automatically be called whenever an event occurs
+		public void actionPerformed(ActionEvent event) { //for us, event is the pressing of the enter button
+			String string = ""; //this will be the final string that outputs
+			
+			// %s = whatever you typed into the text field
+			
+			if(event.getSource() == item1) { // if the user clicks enter on textfield1
+				string = String.format("field1: %s", event.getActionCommand()); 
+												//getActionCommand() = get the text from the location of item 1				
+			}
+			else if(event.getSource() == item2) {
+				string = String.format("field2: %s", event.getActionCommand()); 
+			}
+			else if(event.getSource() == item3) {
+				string = String.format("field3: %s", event.getActionCommand()); 
+			}
+			else if(event.getSource() == password) {
+				string = String.format("password field is: %s", event.getActionCommand());
+			}
+			
+			JOptionPane.showMessageDialog(null, string); //null has to do with positioning
+			
+		}
+	}
+	
+
+}

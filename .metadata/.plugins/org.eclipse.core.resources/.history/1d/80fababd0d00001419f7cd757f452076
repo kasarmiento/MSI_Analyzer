@@ -1,0 +1,26 @@
+package edu.csupomona.stilllab;
+
+import javax.swing.JOptionPane;
+
+public class GUI_Tutorial_1 {
+	
+	public static void main(String[] args) {
+		
+		String firstNum = JOptionPane.showInputDialog("Enter first number"); //only able to receive strings
+		String secNum = JOptionPane.showInputDialog("Enter second number");
+		
+		//convert variables to integers
+		int num1 = Integer.parseInt(firstNum);
+		int num2 = Integer.parseInt(secNum);
+		
+		int sum = num1 + num2;
+		JOptionPane.showMessageDialog(null, "The answer is " + sum + ".", "My Window", JOptionPane.PLAIN_MESSAGE); 
+										 //where to position it, null = center
+										 //a message
+										 //What you want to appear to the title bar
+										 //message to pop up
+		
+		
+	}
+	
+}

@@ -1,0 +1,17 @@
+package edu.csupomona.stilllab;
+
+import javax.swing.JFrame;
+
+public class Gui_2_Main {
+	
+	public static void main(String[] args) {
+		
+		GUI_Tutorial_2 firstGui = new GUI_Tutorial_2();
+		firstGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //how we want our program to close: whenever we hit the x button, then our program terminates.
+		firstGui.setSize(275,180); //275x180 px
+		firstGui.setVisible(true);
+		
+		
+	}
+
+}

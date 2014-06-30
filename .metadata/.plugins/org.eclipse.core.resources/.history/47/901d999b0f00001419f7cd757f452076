@@ -1,0 +1,26 @@
+package edu.csupomona.stilllab;
+
+//an Event is anything that the user can do, like move their mouse, click a button, press enter
+//an EventHandler is something that responds to an event
+
+import java.awt.FlowLayout; 
+import java.awt.event.ActionListener; //listens to/waits for the user to do something
+import java.awt.event.ActionEvent; 
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JOptionPane;
+
+public class EventHandler3 extends JFrame {
+	
+	private JTextField item1;
+	private JTextField item2;
+	private JTextField item3;
+	private JPasswordField password;
+	
+	public EventHandler3() {
+		
+	}
+	
+
+}
